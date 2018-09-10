@@ -1,0 +1,22 @@
+{
+    // "files": [
+    //     "src/main.ts",
+    //     "src/greet.ts"
+    // ],
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        // "node_modules",
+        "**/*.spec.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "lib": [
+            "dom", 
+            // "scripthost",
+            "es2015",
+        ]
+    }
+}
