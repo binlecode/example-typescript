@@ -3,8 +3,8 @@
 let lst = [4, 7, 2, 11, 8, 9];
 
 console.log(lst.sort((a, b) => b - a));
-
-console.log(lst.sort(function(a, b) {return a - b})); // inline function with inferred type
+// the arrow function is equivalent to the inline function below
+console.log(lst.sort(function(a, b) {return a - b}));
 
 function cmp(a: number, b: number): number {  
     return b - a;  // desc sort
@@ -37,7 +37,7 @@ console.log('filtered array with element > b: ' + cst.filter(str => str > 'b').j
  */
 
 // this is like buble sort to return the 'largest' string
-console.log(cst.reduce(function(left, right) {
+console.log(cst.reduce((left, right) => {
     if (left >= right) {
         return left;
     } else {

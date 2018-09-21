@@ -16,7 +16,7 @@ The above two commands should leave us with a package.json file as well as a tsc
 ## compile
 At project root folder, run:
 ```bash
-gulp
+node_modules/.bin/gulp
 ```
 Typescripts are compiled into ```dist``` folder.
 For example, to run ```greet.ts``` script, run:

@@ -1,13 +1,28 @@
+/*
+Typescript interfaces do not result in any compiled JavaScript code. This is due to 
+type erasure when compiled to javascript. 
+Interfaces are used at design time to provide autocompletion and at compile time to 
+provide type checking.
 
+Just like enumerations, interfaces are open and all declarations with a common root 
+are merged into a single interface.
+*/
 
 interface Vehicle {
     // static readonly type: string = 'VEHICLE';
     color?: string;
+    
+}
+
+interface Vehicle {
     numberOfWheels?: number;
 }
 
+let v: Vehicle = {color: 'whilte'};
+console.log(v.color);
+
 let myVan: Vehicle = {type: 'Van'} as Vehicle;
-console.log(myVan.color);
+console.log(myVan.color);  // return 'undefined'
 
 class Car implements Vehicle {
     static readonly type: string = 'CAR';
