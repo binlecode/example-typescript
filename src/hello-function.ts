@@ -52,4 +52,12 @@ greet2('Mrs.', 'Baker');
 greet2('Dr.');
 greet2('Officer', undefined);
 //todo: need to catch the error below because null is a 'value' in javascript...
-greet2('Officer', null);  // this will throw TypeError: Cannot read property 'toUpperCase' of null
+try {
+    greet2('Officer', null);  // this will throw TypeError: Cannot read property 'toUpperCase' of null
+} catch (e) {
+    console.log(`got error: ${e.name} - ${e.message}`);
+}
+
+
+
+
