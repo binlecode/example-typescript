@@ -8,7 +8,8 @@ In general, create a vanilla TS project directory, execute the following command
 
 ```bash
 npm init --y
-tsc --init
+npm install --save typescript
+node_modules/.bin/tsc --init
 ```
 
 The above two commands should leave us with a package.json file as well as a tsconfig.json file
@@ -16,7 +17,7 @@ The above two commands should leave us with a package.json file as well as a tsc
 ## compile
 At project root folder, run:
 ```bash
-node_modules/.bin/gulp
+node_modules/.bin/gulp  
 ```
 Typescripts are compiled into ```dist``` folder.
 For example, to run ```greet.ts``` script, run:
@@ -25,4 +26,4 @@ node dist/greet
 ```
 
 ## watch changed source file and auto compile
-In ```gulpfile.js``` a watcher is defined for source files. Now running ```gulp``` in terminal is involking a watch-compile process.
+In ```gulpfile.js``` a watcher is defined for source files. Now running ```gulp``` in terminal is invoking a watch-compile process.
