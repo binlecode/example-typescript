@@ -1,7 +1,7 @@
 
 
 ## project scaffolding
-project scaffolding follows [offical guide](https://www.typescriptlang.org/docs/handbook/gulp.html)
+project scaffolding follows [official guide](https://www.typescriptlang.org/docs/handbook/gulp.html)
 
 ## first things first
 In general, create a vanilla TS project directory, execute the following commands:
