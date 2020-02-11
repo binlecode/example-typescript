@@ -1,19 +1,28 @@
 {
-  "name": "hello",
+  "name": "example-typescript-gulp",
   "version": "1.0.0",
-  "description": "",
+  "description": "project scaffolding follows [official guide](https://www.typescriptlang.org/docs/handbook/gulp.html)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binlecode/example-typescript-gulp.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^5.0.0-alpha.3",
-    "typescript": "^3.0.3"
+  "bugs": {
+    "url": "https://github.com/binlecode/example-typescript-gulp/issues"
   },
+  "homepage": "https://github.com/binlecode/example-typescript-gulp#readme",
   "dependencies": {
-    "npm": "^6.4.1"
+    "gulp-cli": "^2.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "typescript": "^3.7.5"
   }
 }

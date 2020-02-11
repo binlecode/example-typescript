@@ -1,8 +1,8 @@
 
 // simplest way is using default constructor
 class Thing {
-    isReal: boolean;
-    isLive: boolean;
+    isReal: boolean | undefined;
+    isLive: boolean | undefined;
 }
 let thing1: Thing = {isReal: true, isLive: true};
 console.log(thing1);
@@ -10,8 +10,8 @@ console.log(thing1);
 // now a class with constructor
 
 class Box {
-    type: string;
-    color: string;
+    type: string | undefined;
+    color: string | undefined;
     
     /**
      * constructor takes a hash map with matching field type
@@ -49,7 +49,7 @@ console.log(bb);
 
 // now inheritance 
 class PaperBox extends Box {
-    weight: number;
+    weight: number | undefined;
 
     constructor(attrs?: {type?: string, color?: string, weight: number}) {
         super(attrs);  // super constructor must be called in subclass constructor

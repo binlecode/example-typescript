@@ -33,7 +33,7 @@ console.log(`add all together: ${addAllTogether(1, 2, 3, 4, 5)}`);
 console.log(`add all together: ${addAllTogether(1, 2)}`);  // 1 + 2 => 3
 
 // Optional parameters must be located after any required parameters in the parameter list
-function greet(title: string, name?: string) {
+function greet(title: string | null | undefined, name?: string | null) {
     console.log(`hello ${title} ${name ? name : 'there'}`);
 }
 
@@ -53,7 +53,7 @@ greet2('Dr.');
 greet2('Officer', undefined);
 //todo: need to catch the error below because null is a 'value' in javascript...
 try {
-    greet2('Officer', null);  // this will throw TypeError: Cannot read property 'toUpperCase' of null
+    greet2('Officer', undefined);  // this will throw TypeError: Cannot read property 'toUpperCase' of null
 } catch (e) {
     console.log(`got error: ${e.name} - ${e.message}`);
 }

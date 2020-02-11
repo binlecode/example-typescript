@@ -89,7 +89,7 @@ console.log('type of myCar: ' + typeof myCar);  // 'object'
 
 // example of type assertion
 class Suv extends Car {
-    isAwd: boolean;
+    isAwd: boolean = true;
 }
 
 let myV: Vehicle = {
@@ -97,4 +97,4 @@ let myV: Vehicle = {
 }
 
 let mySuv: Suv = <Suv> myV;
-console.log(mySuv.isAwd);  // return 'undefined'
+console.log(mySuv.isAwd);  // return 'true'

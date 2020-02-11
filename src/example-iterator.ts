@@ -1,7 +1,6 @@
 
-let myLst = Array.from(Array(10).keys());
+let myLst = new Array(10);
 console.log(myLst);
-
 
 // show the difference between for-in and for-of iterators
 let list = [4, 5, 6];
