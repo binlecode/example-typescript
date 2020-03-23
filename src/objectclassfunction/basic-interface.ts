@@ -9,24 +9,25 @@ are merged into a single interface.
 */
 
 interface Vehicle {
-    // static readonly type: string = 'VEHICLE';
+    // '?' for optional properties
     color?: string;
-    
 }
-
+// ts interface is open, it can be 'opened' and modified in multiple places
 interface Vehicle {
     numberOfWheels?: number;
 }
 
-let v: Vehicle = {color: 'whilte'};
+let v: Vehicle = {color: 'white'};
 console.log(v.color);
 
 let myVan: Vehicle = {type: 'Van'} as Vehicle;
-console.log(myVan.color);  // return 'undefined'
+console.log(myVan.color);  // => 'undefined'
 
 class Car implements Vehicle {
+    // readonly properties can be assigned in contructor, then not changable after
     static readonly type: string = 'CAR';
-    color?: string;
+    // color is optional in interface, but can be enforced as mandatory in impl class
+    color: string;
     numberOfWheels?: number;
 
     /**
@@ -35,7 +36,7 @@ class Car implements Vehicle {
      */
     constructor(color: string, numberOfWheels?: number) {
         this.color = color;
-        if (numberOfWheels) {
+        if (numberOfWheels != null) {
             this.numberOfWheels = numberOfWheels;
         }
     }

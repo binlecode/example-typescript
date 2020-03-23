@@ -3,6 +3,17 @@
 ## project scaffolding
 project scaffolding follows [official guide](https://www.typescriptlang.org/docs/handbook/gulp.html)
 
+Essentially after npm init:
+
+```bash
+# install gulp locally
+npm install gulp-cli
+npm install --save-dev typescript gulp gulp-typescript
+```
+
+For `gulp-typescript` config, see `default` and `watch` tasks in [`gulpfile.js`](./gulpfile.js).
+
+
 ## compile
 At project root folder, run:
 ```bash
