@@ -23,5 +23,8 @@ console.log(typeof x);  // => undefined
 x = undefined;
 console.log(typeof x);  // => undefined
 
-
-
+// typeof operator
+// the list of possible returned values are: 
+// number, string, boolean, function, object, and undefined
+// note that 'object' will be returned for null, array, and any other javascript object.
+// note that 'undefined' is only returned for undefined variable
