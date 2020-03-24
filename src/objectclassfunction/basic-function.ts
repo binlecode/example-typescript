@@ -1,9 +1,11 @@
 
-// a function always returns a value. If the return value is not specified, then undefined is returned
+// a function always returns a value. If the return value is not specified, 
+// then undefined is returned
+
 function hello(): void {}
 console.log(hello());  // => undefined
 
-// it is always recommend to explicit specify void as return type for 
+// it is always recommended to explicit specify void as return type for 
 // function that doesn't return a value
 function returnNoValue(name: string): void {
     console.log(`${name} returns no value`);
