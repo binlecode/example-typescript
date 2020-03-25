@@ -1,30 +1,30 @@
 
 
-interface Iterator<T> {
-    next(): T;
+interface MyIterator {
+    next(): any;
     hasNext(): boolean;
     reset(): void;
 }
 
-interface Iterable<T> {
-    iterator(): Iterator<T>;
+interface MyIterable {
+    iterator(): MyIterator;
 }
 
-class MyIterable implements Iterable<any> {
+class MyIterableImpl implements MyIterable {
 
     constructor(private myData: any[] = []) {
     }
-    
-    iterator(): Iterator<any> {
+
+    iterator(): MyIterator {
         return this.myIterator;
     }
 
     /** 
      * iterator property defined as an inner class implementing the Iterator interface
      */ 
-    myIterator: Iterator<any> = new class {
+    myIterator: MyIterator = new class {
         // inner class constructor has input argument of container class
-        constructor(public superThis: MyIterable) {
+        constructor(public superThis: MyIterableImpl) {
         }
         private pointer = -1;
         public next() {
@@ -45,8 +45,7 @@ class MyIterable implements Iterable<any> {
     }(this);
 }
 
-let myIterable = new MyIterable([3, 7, 9, 45]);
-
+let myIterable: MyIterable = new MyIterableImpl([3, 7, 9, 45]);
 let myIter = myIterable.iterator();
 
 console.log(myIter.next());
