@@ -43,7 +43,8 @@ let localWrapper = function(n: any) {
     return () => lv;
 }
 
-// function values contain both the code in their body and the environment in which they are created.
+// function values contain both the code in their body and the environment in 
+// which they are <em>created</em>.
 let wrp1 = localWrapper(1);
 let wrp2 = localWrapper(2);
 
