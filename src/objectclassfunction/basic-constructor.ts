@@ -51,7 +51,6 @@ bb.type = 'ToyBox';
 bb.color = 'Red';
 console.log(bb);
 
-
 // now inheritance 
 class PaperBox extends Box {
     weight: number | undefined;

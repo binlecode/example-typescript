@@ -1,7 +1,6 @@
 
 // a function always returns a value. If the return value is not specified, 
 // then undefined is returned
-
 function hello(): void {}
 console.log(hello());  // => undefined
 

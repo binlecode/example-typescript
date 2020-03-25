@@ -1,25 +1,60 @@
 
-let myLst = new Array(10);
-console.log(myLst);
 
-// show the difference between for-in and for-of iterators
-let list = [4, 5, 6];
-
-// for-in iterats keys of object, for list, it's the index value
-for (let i in list) {
-   console.log(i); // "0", "1", "2",
-}
-// for-of iterates elements of object, and only work with iterable objects like array or string
-for (let i of list) {
-   console.log(i); // "4", "5", "6"
+interface Iterator<T> {
+    next(): T;
+    hasNext(): boolean;
+    reset(): void;
 }
 
-let myObj = {k1: 'v1', k2: 123, k3: false};
-for (let key in myObj) {
-    console.log(`key: ${key} => value: ${(<any>myObj)[key]}`); // cast to any to avoid index signature missing error
-}
-// this will not get into loop as myObj is actually not iterable
-for (let elm of <any>myObj) {  // will get compilation error if not cast with <any>
-    console.log(`elm: ${elm}`);
+interface Iterable<T> {
+    iterator(): Iterator<T>;
 }
 
+class MyIterable implements Iterable<any> {
+
+    constructor(private myData: any[] = []) {
+    }
+    
+    iterator(): Iterator<any> {
+        return this.myIterator;
+    }
+
+    /** 
+     * iterator property defined as an inner class implementing the Iterator interface
+     */ 
+    myIterator: Iterator<any> = new class {
+        // inner class constructor has input argument of container class
+        constructor(public superThis: MyIterable) {
+        }
+        private pointer = -1;
+        public next() {
+            if (this.hasNext()) {
+                this.pointer += 1;
+                return this.superThis.myData[this.pointer];
+            } else {
+                return null;
+            }
+        }
+        public hasNext(): boolean {
+            let pkIdx = this.pointer + 1;
+            return this.superThis.myData.length > pkIdx;
+        }
+        public reset(): void {
+            this.pointer = -1;
+        }
+    }(this);
+}
+
+let myIterable = new MyIterable([3, 7, 9, 45]);
+
+let myIter = myIterable.iterator();
+
+console.log(myIter.next());
+myIter.next();
+console.log(myIter.next());
+// reset iterator
+console.log('iterator pointer reset');
+myIter.reset();
+while (myIter.hasNext()) {
+    console.log(myIter.next());
+}

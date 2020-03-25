@@ -13,6 +13,11 @@ npm install --save-dev typescript gulp gulp-typescript
 
 For `gulp-typescript` config, see `default` and `watch` tasks in [`gulpfile.js`](./gulpfile.js).
 
+To enable gulp watch mode to track and compile on code change.
+```bash
+npm run gulp watch
+```
+
 
 ## compile
 At project root folder, run:
