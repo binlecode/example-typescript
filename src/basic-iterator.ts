@@ -57,3 +57,32 @@ myIter.reset();
 while (myIter.hasNext()) {
     console.log(myIter.next());
 }
+
+
+// now use javascript stock iterator interface [Symbol.iterator] to support for-of loop
+
+class MyBag {
+    items: any[] = [];
+
+    constructor(data: any[]) {
+        if (data.length > 0) {
+            this.items = data;
+        }
+    }
+
+    // implement iterator generator function interface that for-of loop can call
+    *[Symbol.iterator]() {
+        let max = this.items.length;
+        let idx = 0;
+        while (idx < max) {
+            yield this.items[idx++];
+        }
+    }
+}
+
+let mb = new MyBag(['apple', 'pen', 'laptop', 'usb-drive']);
+for (let item of mb) {
+    console.log('bag has item: ' + item);
+}
+
+
