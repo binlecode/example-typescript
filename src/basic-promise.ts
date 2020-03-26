@@ -3,18 +3,30 @@
 The main motivation for promises is to bring synchronous style error handling 
 to Async / Callback style code.
 
-A promise can be either resolved or rejected.
 */
 
 Promise.resolve(123)
     .then(res => {
         console.log('got promise result: ' + res);
     });
+// Promise itself can also serve as a constructor
+// below is equivalent to Promise.resolve(123)
+new Promise((resolve, reject) => {
+    resolve(123);
+}).then(res => {
+    console.log('got promise result: ' + res);
+})
+
+// A promise can be either resolved (action finished successfully) or rejected (it failed).
+// The resolved value might already be there or might appear at some point in the future.
+// The rejected value usually is called the reason of rejection.
 
 Promise.reject(new Error('promise error'))
     .catch((err: Error) => {
         console.log('got promise rejection:' + err);
     });
+
+
 
 
 // chaining
@@ -47,7 +59,6 @@ function delayedPromise(ms: number): Promise<string> {
         setTimeout(() => { resolve('late greeting'); }, ms);
     } );
 }
-console.log('waiting for greeting...');
 let delayedGreeting = delayedPromise(1000)
     .then((res: string) => {
         console.log("got delayed greeting: " + res);

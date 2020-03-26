@@ -1,4 +1,17 @@
 
+// javascript support object literal in `{}`
+
+let obj = {
+    name: 'foo',
+    // have to wrap key with "" when the key has '-'
+    "is-new": true
+};
+
+let obj2 = Object.create(obj);
+console.log(obj2.name == 'foo')  // => true
+console.log(obj === obj2); // => false
+
+
 class Foo {
     name?: string;
 }

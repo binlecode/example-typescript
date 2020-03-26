@@ -1,6 +1,13 @@
 
-
 let lst = [4, 7, 2, 11, 8, 9];
+
+// array support both key and value based iterations
+for (let k in lst) {
+    console.log(k + ' -> ' + lst[k]);
+}
+for (let v of lst) {
+    console.log(v);
+}
 
 console.log(lst.sort((a, b) => b - a));
 // the arrow function is equivalent to the inline function below

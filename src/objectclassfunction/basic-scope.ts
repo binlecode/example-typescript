@@ -1,6 +1,51 @@
 
+/*
+
+Scope in a programming language controls the visibility and lifetimes of 
+variables and parameters.
+Most programming languages have block scope, the variables defined in the 
+block are released when execution of the block is finished.
+
+But, javascript does not support block scope even though it has block syntax.
+Instead, javascript has function scope. 
+That means that the parameters and variables defined in a function are not 
+visible outside of the function, and that a variable defined anywhere within
+a function is visible everywhere within the function.
+It also means a function has access to variables and parameters of the container 
+context where the function is defined.
+
+*/
+
+// var vs let
+// var is function scoped: a variable defined with 'var' makes it local to the 
+// function where it is defined. If it is not in a function, it becomes globally
+// accessible even it is nested in code blocks.
+
+if (true) {
+    var foo = 'foo';
+}
+console.log(foo);   // 'foo'
+
+// on the other hand, let is block scoped, which is a subset of function scope
+if (true) {
+    let bar = 'bar';
+}
+try {
+    console.log(bar);
+} catch (e) {
+    console.log(e);  // ReferenceError: bar is not defined
+}
+
+// by omitting 'var' or 'let' prefix, foo is defined as a global variable
+function test() {
+    foo = 'bar';
+}
+test(); // now foo is visible outside of function scope
+console.log(foo);
+
+
 // each function has its local binding scope
-// ach local scope can also see all the local scopes that contain it
+// each local scope can also see all the local scopes that contain it
 // and since the 'top-level' local scope's containing scope is global scope,
 // global scope is seen by all local scopes.
 
@@ -39,7 +84,7 @@ console.log(outerFun());
 
 let localWrapper = function(n: any) {
     let lv = n;
-    // return a new arrow function with binding to container scope var `lv`
+    // return a new arrow function with binding to a container scoped var `lv`
     return () => lv;
 }
 

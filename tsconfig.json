@@ -6,7 +6,9 @@
     "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
     "lib": [                                  /* Specify library files to be included in the compilation. */
       "ES2015",     // needed for Promise.resolve
-      "DOM"         // needed for console logging
+      "DOM",        // default with target 'es5'
+      "ES5",        // default with target 'es5'
+      "ScriptHost"  // default with target 'es5'
     ],
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
