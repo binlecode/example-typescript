@@ -19,7 +19,19 @@ class Foo {
 let bar = (<any>Object).assign(new Foo(), {color: 'blue'});
 console.log(bar); // => Foo { color: 'blue' }
 
-// object assign can merge multiple objects to target receiver
+// Object.assign() can merge multiple objects to target receiver
+// 
+// This method accepts one destination object, and one or many source objects, 
+// and for each source object copies the enumerable (Object.propertyIsEnumerable 
+// returns true) and own (Object.hasOwnProperty returns true) properties onto 
+// the destination object.
+// Properties keyed with strings and symbols will be copied. For each suitable 
+// property, the method will use [[Get]] to retrieve a value from the source object
+// and [[Set]] on the destination object to assign the value.
+//
+// Object.assign() performs shallow copy only.
+
+
 let foo: Foo = {name: 'foo'};
 // property with same name gets overwritten
 let bar2 = (Object as any).assign(foo, {name: 'bar'}, {color: 'red'});
