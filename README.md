@@ -24,6 +24,10 @@ Use installed ts-node to run ts files in src folder:
 ./node_modules/.bin/ts-node src/basic-iterator.ts 
 ```
 
+Or with npn defined script shortcut `tn`:
+```sh
+npm run tn src/basic-generator.ts
+```
 
 ## run node on compiled js
 
