@@ -27,8 +27,9 @@ export class Foo {
 
 let f = new Foo('red', 12);
 console.log("f's size: " + f.size);
-// only compiler error, the compiled js code still runs and returns value
+// if the following line is uncommented, there will be a compiler error, 
+// the compiled js code still runs and returns value
 // which means typescript class member is not truly private or protected
-console.log("f's secret size: " + f._size);
+//console.log("f's secret size: " + f._size);
 
 // truly private property is not supported, until ES 2019, by '#' prefix
