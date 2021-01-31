@@ -9,5 +9,3 @@ function hello(compiler: string) {
 hello(name);
 
 console.log(hello instanceof Object);
-
-console.log('gulp is watching!');

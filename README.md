@@ -1,15 +1,13 @@
 
 
-## project scaffolding with Gulp
+## install and compile
 
-Project scaffolding follows [official guide](https://www.typescriptlang.org/docs/handbook/gulp.html)
+Install dependencies:
 
-Essentially after npm init:
-
-```bash
-# install gulp locally
-npm install gulp-cli
-npm install --save-dev typescript gulp gulp-typescript
+```sh
+npm install 
+# compile ts code
+node_modules/.bin/gulp [default]
 ```
 
 For `gulp-typescript` config, see `default` and `watch` tasks in [`gulpfile.js`](./gulpfile.js).
@@ -19,17 +17,18 @@ To enable gulp watch mode to track and compile on code change.
 npm run gulp watch
 ```
 
-## compile
+## run ts-node on ts files
 
-At project root folder, run:
-```bash
-node_modules/.bin/gulp [default]
+Use installed ts-node to run ts files in src folder:
+```sh
+./node_modules/.bin/ts-node src/basic-iterator.ts 
 ```
+
 
 ## run node on compiled js
 
-Typescripts are compiled into ```dist``` folder.
-For example, to run ```greet.ts``` script, run:
+Typescripts are compiled into `dist` folder.
+For example, to run `greet.ts` script, run:
 
 ```bash
 node dist/greet
@@ -37,8 +36,16 @@ node dist/greet
 
 ## watch changed source file and auto compile
 
-In ```gulpfile.js``` a watcher is defined for source files. Now running ```gulp``` in terminal is invoking a watch-compile process.
+In `gulpfile.js` a watcher is defined for source files. Now running `gulp` in terminal is invoking a watch-compile process.
 
 ```bash
 node_modules/.bin/gulp watch
+```
+
+
+## project scaffolding
+
+Project scaffolding follows [official guide](https://www.typescriptlang.org/docs/handbook/gulp.html)
+```sh
+npm install --save-dev typescript gulp gulp-cli gulp-typescript ts-node
 ```
